@@ -6,7 +6,10 @@
 
 Downloads new lessons and series from laracasts if there are updates. Or the whole catalogue.
 
-**This is working as of `2020-02-09`, although you are rate limited to 30 downloads every 24 hours.**
+### LIMITED FUNCTIONALITY NOTE:
+Due to recent changes in the structure of the series page, it is no longer possible to fetch the full catalog
+of lessons and series. Between a lengthy (unknown) delay on algolia indexing, and incomplete list of content
+on the series page, ability to download is severely hindered.
 
 ## Description
 Syncs your local folder with the laracasts website, when there are new lessons the app download it for you.
@@ -89,6 +92,23 @@ Or the Series name:
 $ php start.php -s "Series name example"
 $ php start.php --series-name "Series name example"
 ```
+
+### Filter to download specific episodes of a series
+You can provide episode number(s) saperated by comma ```,```:
+You can add 1 or more episodes.
+```sh
+$ php start.php -s "lesson-slug-example" -e "12,15"
+$ php start.php --series-name "series-slug-example" --series-episodes "12,15"
+```
+Or the with Series name:
+```sh
+$ php start.php -s "Series name example" -e "12"
+$ php start.php --series-name "Series name example" --series-episodes "12"
+```
+This will only download episodes which you mentioned in
+-e or --series-episodes flag, it will also ignor already downloaded episodes
+as usual.
+
 
 ### Command to download specific lessons
 You can either use the Lessons slug (preferred):
